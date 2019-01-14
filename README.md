@@ -1,2 +1,2 @@
 # QuickTipp-Generator
-Simple QuickTipp-Generator in JavaScript
+Simple QuickTipp-Generator using HTML5 and JavaScript
