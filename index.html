@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Quicktipp-Generator</title>
+        <meta charset="UTF-8">
+        <script>
+
+            //Funktionen
+               
+               // Eingabe der gewünschten Anzahl an Quicktipps (maximal 6 Quicktipps pro Lottoschein lt. Lotterie möglich!)
+               function inputAmount () {
+                   var amount = prompt("Bitte gib die Anzahl an gewünschten Quicktipps ein! (Maximal 6 Quicktipps pro Lottoschein!)");
+                   amount = parseInt(amount);
+                   if (amount > 0 && amount < 7) {  // maximal 6 Quicktipps pro Schein möglich
+                       return amount;
+                   } else {
+                       console.log("Bitte gib eine Zahl zwischen 1 und 6 ein!");
+                   }
+               }
+               
+                // Gibt eine zufällige Nummer zwischen Min und Max aus
+                function randomNumbers(min, max){
+                    return Math.floor(Math.random() * (max - min + 1)) + min;
+                }
+
+                // Gibt ein Array mit Lottozahlen von 1 bis 45 aus
+                function createLottoBalls(){
+                    var balls = [];
+                    for(var i = 1; i < 46; i++) {
+                        balls.push(i);
+                    }
+                    return balls;
+                }
+
+                // Gibt ein Array mit 6 zufälligen Lottozahlen aus
+                function createQuickTipp(balls){
+                    var quickTipp = [];
+                    for(var i = 0; quickTipp.length < 6; i++) {
+                        var randomNr = randomNumbers(1, 45)
+                        for(var j = 0; j < balls.length; j++) {
+                            if(balls[j] === randomNr) {
+                                balls.splice(j, 1);
+                                if(quickTipp[j] !== randomNr){
+                                    quickTipp.push(randomNr);
+                                }                 
+                             }
+                        } 
+                    } console.log("Dein Quicktipp ist: " + quickTipp);
+                }
+
+                // Gibt die gewünschte Anzahl an Quicktipps aus
+                function createAmountOfQuickTipps (amount, allBalls) {
+                    for (var i = 0; i < amount; i++) {
+                        createQuickTipp(allBalls);
+                    }
+                }
+
+            //Programmausführung
+                
+                //Eingabe der gewünschten Anzahl an Quicktipps, Konvertierung in Number
+                var myAmountOfQuickTipps = inputAmount();
+
+                // Erstellt ein Array mit Lottozahlen von 1 bis 45
+                var lottoBalls = createLottoBalls();
+
+                // Erstellt Arrays mit 6 zufälligen Lottozahlen
+                createAmountOfQuickTipps(myAmountOfQuickTipps, lottoBalls);
+
+        </script>
+    </head>
+    <body>
+        <h1>Quicktipp-Generator von Marcel Almesberger (dh181812)</h1>
+    </body>
+</html>
