@@ -1,6 +1,6 @@
 # QuickTipp-Generator
 
-This program generates the entered number of random QuickTipps (array of 6 lottoballs) for the Austrian national lottery.
+This program generates the entered number of random QuickTipps (array of 6 lottoballs) for the Austrian national lottery and logs them to the browser console.
 
 ## Prerequisites
 
